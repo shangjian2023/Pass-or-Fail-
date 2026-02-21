@@ -1,0 +1,6 @@
+﻿node_modules/
+dist/
+*.exe
+*.dll
+*.zip
+*.7z

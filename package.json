@@ -1,0 +1,92 @@
+{
+  "name": "final-exam-calculator",
+  "productName": "期末求生计算器",
+  "version": "2.0.0",
+  "description": "大学生成绩预测神器 - 精准计算期末需要考多少分",
+  "main": "main.js",
+  "author": "期末求生团队",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:portable": "electron-builder --win --portable",
+    "dist": "npm run build:win",
+    "pack": "electron-builder --dir"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1",
+    "ico-endec": "^0.1.6",
+    "png-to-ico": "^3.0.1",
+    "sharp": "^0.34.5",
+    "svg-to-ico": "^1.0.17"
+  },
+  "build": {
+    "appId": "com.finalcalculator.app",
+    "productName": "期末求生计算器",
+    "copyright": "Copyright © 2024 期末求生团队",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "package.json",
+      "期末求生计算器/**/*",
+      "assets/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "期末求生计算器",
+        "to": "期末求生计算器"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ],
+      "icon": "assets/icon.ico",
+      "requestedExecutionLevel": "asInvoker",
+      "verifyUpdateCodeSignature": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "assets/icon.ico",
+      "uninstallerIcon": "assets/icon.ico",
+      "installerHeaderIcon": "assets/icon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "期末求生计算器",
+      "include": "",
+      "license": "",
+      "artifactName": "${productName}-Setup-${version}.${ext}"
+    },
+    "portable": {
+      "artifactName": "${productName}-Portable-${version}.${ext}"
+    },
+    "electronDownload": {
+      "mirror": "https://npmmirror.com/mirrors/electron/"
+    }
+  },
+  "keywords": [
+    "成绩计算器",
+    "期末成绩",
+    "大学生工具",
+    "成绩预测"
+  ]
+}
